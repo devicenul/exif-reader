@@ -4,7 +4,6 @@ import com.drew.imaging.ImageMetadataReader;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
-import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@Api(value="/uploadImage", description="Tool to dump the EXIF data from an image file")
 public class UploadFile {
     private static final Logger LOG = LoggerFactory.getLogger(UploadFile.class);
 
@@ -28,12 +26,12 @@ public class UploadFile {
 
     }
 
-    @GetMapping("/uploadImage")
+    @GetMapping("/exif-reader/uploadImage")
     public String listUploadedFiles(Model model) {
         return "uploadForm";
     }
 
-    @PostMapping("/processImage")
+    @PostMapping("/exif-reader/processImage")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                          Model model) {
 
