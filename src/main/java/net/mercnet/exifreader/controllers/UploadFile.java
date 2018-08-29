@@ -75,7 +75,7 @@ public class UploadFile {
 
         } catch (Exception e) {
             LOG.error("Got exception loading metadata for file: {}", filename, e);
-            model.addAttribute("error", "Exception" + e.getLocalizedMessage());
+            model.addAttribute("error", "Exception: " + e.getLocalizedMessage());
             return "error";
         }
         return "results";
